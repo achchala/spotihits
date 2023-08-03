@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 function App() {
@@ -12,9 +12,6 @@ function App() {
           q: artistName,
           type: 'artist',
           limit: 1
-        },
-        headers: {
-          'Authorization': 'Bearer YOUR_ACCESS_TOKEN'
         }
       });
 
@@ -23,9 +20,6 @@ function App() {
       const topTracksResponse = await axios.get(`https://api.spotify.com/v1/artists/${artistId}/top-tracks`, {
         params: {
           country: 'US'
-        },
-        headers: {
-          'Authorization': 'Bearer YOUR_ACCESS_TOKEN'
         }
       });
 
@@ -37,17 +31,25 @@ function App() {
     }
   };
 
+  const handleInputChange = (event) => {
+    setArtistName(event.target.value);
+  };
+
+  const handleButtonClick = () => {
+    getTopSongs();
+  };
+
   return (
     <div className="App">
-      <h1>Top 5 Streamed Songs on Spotify</h1>
+      <h1>Top 5 Streamed Songs by Artist</h1>
       <div>
         <input
           type="text"
           value={artistName}
-          onChange={(e) => setArtistName(e.target.value)}
+          onChange={handleInputChange}
           placeholder="Enter artist name"
         />
-        <button onClick={getTopSongs}>Get Top Songs</button>
+        <button onClick={handleButtonClick}>Get Top Songs</button>
       </div>
       {topSongs.length > 0 ? (
         <ul>
