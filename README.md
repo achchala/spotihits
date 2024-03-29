@@ -1,3 +1,3 @@
-# Your Top 5 Streamed Songs on Spotify
+# spotihits 🎧
 
-Run by 
+displaying insights about user's top songs on Spotify, wrapper for Spotify's Web API!
