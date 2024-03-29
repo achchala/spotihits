@@ -1,0 +1,28 @@
+.tracks-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.track-box {
+    border: 2px solid greenyellow;
+    border-radius: 8px;
+    width: 200px;
+    overflow: hidden;
+}
+
+.cover {
+    width: 100%;
+    height: auto;
+}
+
+.track-info {
+    padding: 10px;
+    background-color: black;
+    color: greenyellow;
+}
+
+.track-info h3, .track-info p {
+    margin: 5px 0;
+}

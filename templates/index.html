@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Spotify Wrapped</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles.css')}}">
+</head>
+<body>
+<div class="tracks-container">
+    {% for track in tracks %}
+    <div class="track-box">
+        <img src="{{ track.cover }}" alt="Album Cover" class="cover">
+        <div class="track-info">
+            <h3>{{ track.name }}</h3>
+            <p>{{ track.artist }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</body>
+</html>
